@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Compras</title>
+</head>
+
+<body>
+    <a href="/">Página Principal</a>
+    <h1>Lista Compras</h1>
+
+    <form action="/listacompras/cadastro" method="POST">
+        <input type="text" name="descricao" />
+        <input type="submit" value="Cadastrar" />
+    </form>
+    <table>
+        <thead>Descrição</thead>
+        <tr th:each="item : ${itens}">
+            <td th:text="${item.descricao}">teste</td>
+            <td><a th:href="@{'/listacompras/excluir/' + ${item.id}}">Excluir</a></td>
+        </tr>
+    </table>
+</body>
+
+</html>
